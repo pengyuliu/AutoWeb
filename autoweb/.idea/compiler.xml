@@ -22,12 +22,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="bizmodules" />
+        <module name="framework" />
         <module name="webapp" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="bizmodules" target="1.5" />
+      <module name="autoweb" target="1.5" />
+      <module name="framework" target="1.8" />
       <module name="webapp" target="1.5" />
     </bytecodeTargetLevel>
   </component>
