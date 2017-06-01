@@ -117,59 +117,7 @@
             </plugin>
 
 
-            <!-- replace sdcp css and js reference -->
-            <plugin>
-                <groupId>com.google.code.maven-replacer-plugin</groupId>
-                <artifactId>replacer</artifactId>
-                <version>1.5.3</version>
-                <executions>
-                    <execution>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>replace</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <includes>
-                        <include>
-                            ${project.build.directory}/${project.build.finalName}/WEB-INF/web.xml
-                        </include>
-                        <include>
-                            ${project.build.directory}/${project.build.finalName}/framework/js_source/*.js
-                        </include>
-                    </includes>
-                    <replacements>
-                        <replacement>
-                            <token>
-                                %build_no%
-                            </token>
-                            <value>
-                                ${maven.build.timestamp}
-                            </value>
-                        </replacement>
-                        <replacement>
-                            <token>
-                                <![CDATA[
-                                <!-- Spring Profile placeholder -->(.*?)<!-- end of Spring Profile placeholder -->
-                                ]]>
-                            </token>
-                            <value>
-                                <![CDATA[
-    <context-param>
-        <param-name>spring.profiles.default</param-name>
-        <param-value>${container}</param-value>
-    </context-param>
-                                ]]>
-                            </value>
-                        </replacement>
-                    </replacements>
-                    <regexFlags>
-                        <regexFlag>CASE_INSENSITIVE</regexFlag>
-                        <regexFlag>DOTALL</regexFlag>
-                    </regexFlags>
-                </configuration>
-            </plugin>
+
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
